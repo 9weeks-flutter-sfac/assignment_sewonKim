@@ -156,12 +156,13 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                     Container(
-                        margin: EdgeInsets.only(left: 190),
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                          size: 30,
-                        ))
+                      margin: EdgeInsets.only(left: 190),
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
                   ],
                 ),
               ),
