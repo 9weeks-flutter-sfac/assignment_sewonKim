@@ -108,20 +108,51 @@ class _SecondPageState extends State<SecondPage> {
         onPressed: () {
           scrollToTop();
         },
-        child: Icon(Icons.move_up_outlined),
+        child: Icon(Icons.vertical_align_top),
       ),
     );
   }
 }
 
-class ThirdPage extends StatelessWidget {
+class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});
 
   @override
+  State<ThirdPage> createState() => _ThirdPageState();
+}
+
+class _ThirdPageState extends State<ThirdPage> {
+  var myController = TextEditingController();
+
+  @override
+  void mirror() {
+    myController.dispose();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('5일차 과제'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              controller: myController,
+              onChanged: (value) => setState(() {}),
+            ),
+            Text(myController.text),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            myController.clear();
+          });
+        },
+        child: Icon(Icons.close),
       ),
     );
   }
