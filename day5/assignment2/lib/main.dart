@@ -19,8 +19,18 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Main extends StatelessWidget {
+class Main extends StatefulWidget {
   const Main({super.key});
+
+  @override
+  State<Main> createState() => _MainState();
+}
+
+class _MainState extends State<Main> {
+  final TextEditingController textEditingController = TextEditingController();
+
+  String content = '';
+  String text = '';
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +38,39 @@ class Main extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            switchTileRed(icons: Icons.sunny, iconName: 'Sun'),
-            switchTileYellow(icons: Icons.nightlight_round, iconName: 'Moon'),
-            switchTileYellow(icons: Icons.star, iconName: 'Star'),
+            switchTileRed(
+              icons: Icons.sunny,
+              iconName: 'Sun',
+              text: text == '태양',
+              textBool: content == '태양',
+            ),
+            switchTileYellow(
+              icons: Icons.nightlight_round,
+              iconName: 'Moon',
+              text: text == '달',
+              textBool: content == '달',
+            ),
+            switchTileYellow(
+              icons: Icons.star,
+              iconName: 'Star',
+              text: text == '별',
+              textBool: content == '별',
+            ),
+            TextField(
+              controller: textEditingController,
+              onSubmitted: (value) {
+                content = value;
+                if (text.isEmpty) {
+                  text = textEditingController.text;
+                } else {
+                  text = "";
+                }
+                setState(() {});
+              },
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey))),
+            )
           ],
         ),
       ),
