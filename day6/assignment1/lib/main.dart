@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:assignment1/page/mainPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,27 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('내 연락처'),
-        ),
-      ),
+      home: MainPage(),
     );
-  }
-}
-
-class FistPage extends StatefulWidget {
-  const FistPage({super.key});
-
-  @override
-  State<FistPage> createState() => _FistPageState();
-}
-
-class _FistPageState extends State<FistPage> {
-  List<String> myContacts = [''];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold();
   }
 }
