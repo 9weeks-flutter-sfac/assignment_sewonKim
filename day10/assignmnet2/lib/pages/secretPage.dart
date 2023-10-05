@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:secret_cat_sdk/api/api.dart';
 
@@ -29,46 +30,49 @@ class SecretPage extends StatelessWidget {
               return PageView.builder(
                   itemCount: snapshot.data?.length,
                   itemBuilder: (context, index) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.white,
-                          backgroundImage:
-                              AssetImage('assets/images/secretLogo.png'),
-                          radius: 40,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Colors.white,
+                    return FadeInRight(
+                      duration: Duration(seconds: 1),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.white,
+                            backgroundImage:
+                                AssetImage('assets/images/secretLogo.png'),
+                            radius: 40,
                           ),
-                          width: 120,
-                          height: 30,
-                          child: Text(
-                            reverseSecret[index].author?.username ?? '스파이',
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: Colors.white,
+                            ),
+                            width: 120,
+                            height: 30,
+                            child: Text(
+                              reverseSecret[index].author?.username ?? '스파이',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.blue[600]),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            reverseSecret[index].secret,
                             style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.blue[600]),
+                                fontSize: 19,
+                                fontWeight: FontWeight.w100,
+                                color: Colors.white),
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          reverseSecret[index].secret,
-                          style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w100,
-                              color: Colors.white),
-                        ),
-                      ],
+                        ],
+                      ),
                     );
                   });
             }

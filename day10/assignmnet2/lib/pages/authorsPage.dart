@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:secret_cat_sdk/api/api.dart';
 
@@ -33,12 +34,16 @@ class AuthorsPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.white,
-                            backgroundImage: AssetImage(
-                                snapshot.data![index].avatar ??
-                                    'assets/images/secretLogo.png'),
-                            radius: 35,
+                          FadeIn(
+                            delay: Duration(milliseconds: 300 * index),
+                            duration: Duration(milliseconds: 1000),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              backgroundImage: AssetImage(
+                                  snapshot.data![index].avatar ??
+                                      'assets/images/secretLogo.png'),
+                              radius: 35,
+                            ),
                           ),
                           SizedBox(
                             height: 5,
