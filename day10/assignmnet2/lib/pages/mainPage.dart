@@ -10,32 +10,31 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange[300],
+      backgroundColor: Colors.blue[300],
       body: SafeArea(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 150,
-              ),
               Container(
-                padding: EdgeInsets.only(bottom: 20),
+                padding: EdgeInsets.only(bottom: 15),
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Image.asset(
-                        'assets/images/detective.png',
-                        width: 80,
-                        height: 80,
+                      padding: const EdgeInsets.all(5.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        backgroundImage:
+                            AssetImage('assets/images/secretLogo.png'),
+                        radius: 55,
                       ),
                     ),
                     Text(
-                      '비밀듣는 스파이',
+                      '도청하는 스파이',
                       style: TextStyle(
-                          fontFamily: 'neo',
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold),
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w100),
                     ),
                   ],
                 ),
@@ -43,7 +42,7 @@ class MainPage extends StatelessWidget {
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: InkWell(
                         onTap: () {
                           Navigator.push(
@@ -57,7 +56,7 @@ class MainPage extends StatelessWidget {
                             menuIcon: 'assets/images/secret.png')),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: InkWell(
                         onTap: () {
                           Navigator.push(
@@ -67,11 +66,11 @@ class MainPage extends StatelessWidget {
                         },
                         child: MenuTile(
                             menuName: '비밀쟁이',
-                            menuSubtitle: '비밀 작성자보기',
-                            menuIcon: 'assets/images/spy.png')),
+                            menuSubtitle: '스파이보기',
+                            menuIcon: 'assets/images/detective.png')),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: InkWell(
                         onTap: () {
                           Navigator.push(

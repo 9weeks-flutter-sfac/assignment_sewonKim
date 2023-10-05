@@ -20,6 +20,7 @@ class MenuTile extends StatelessWidget {
         title: Text(
           menuName,
           style: TextStyle(
+            color: Colors.blue[600],
             fontSize: 18,
             fontWeight: FontWeight.w400,
           ),
