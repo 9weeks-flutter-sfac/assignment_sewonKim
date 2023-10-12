@@ -39,7 +39,7 @@ class AuthorsPage extends StatelessWidget {
                             duration: Duration(milliseconds: 1000),
                             child: CircleAvatar(
                               backgroundColor: Colors.white,
-                              backgroundImage: AssetImage(
+                              backgroundImage: NetworkImage(
                                   snapshot.data![index].avatar ??
                                       'assets/images/secretLogo.png'),
                               radius: 35,
