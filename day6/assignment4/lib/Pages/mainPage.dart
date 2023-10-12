@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:assignment4/Screens/settingScreen.dart';
 import 'package:assignment4/Screens/contactScreen.dart';
 import 'package:assignment4/Screens/historyScreen.dart';
-
+import 'package:assignment4/Screens/settingScreen.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
